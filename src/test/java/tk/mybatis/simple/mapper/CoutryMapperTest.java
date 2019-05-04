@@ -40,7 +40,7 @@ public class CoutryMapperTest extends BaseMapperTest {
 			// execute the search
 			List<Country> countryList = countryMapper.selectByExample(example);
 			Assert.assertNotNull(countryList);
-			printCountryList(countryList);
+			// printCountryList(countryList);
 		} finally {
 			// Please don't forget to close the session after each test case
 			slqSession.close();
@@ -67,7 +67,7 @@ public class CoutryMapperTest extends BaseMapperTest {
 			// do search and update
 			countryMapper.updateByExampleSelective(country, example);
 			// output the update result
-			printCountryList(countryMapper.selectByExample(example));
+			// printCountryList(countryMapper.selectByExample(example));
 			
 		} finally {
 			// Do really update the database, just rollback

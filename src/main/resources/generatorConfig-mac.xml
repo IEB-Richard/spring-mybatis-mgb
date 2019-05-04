@@ -13,6 +13,9 @@
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
         <!-- 为生成的Java模型创建一个toString方法 -->
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!-- 为生成的Java模型创建一个equals和hashCode方法 -->
+        <!-- <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/> -->
+        
         <commentGenerator type="tk.mybatis.simple.CommentGenerator">
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true"/>
@@ -35,7 +38,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="tk.mybatis.simple.mapper"
                              targetProject="src/main/java"/>
         <!--生成全部表tableName设为%-->
-        <table tableName="country">
+        <table tableName="sys_user">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
