@@ -11,22 +11,24 @@ import org.mybatis.generator.internal.DefaultShellCallback;
 
 public class Generator {
     public static void main(String[] args) throws Exception {
-        //MBG 执行过程中的警告信息
+        // define a list to collect the warning messages during the code generation 
+    	// process.
         List<String> warnings = new ArrayList<String>();
-        //当生成的代码重复时，覆盖原代码
+        // when duplicates occurs, overwrite the old ones
         boolean overwrite = true;
-        //读取我们的 MBG 配置文件
+        // Read the generator configuration file
         InputStream is = Generator.class.getResourceAsStream("/generatorConfig-mac.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(is);
+        // close the input stream
         is.close();
 
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);
-        //创建 MBG
+        // Create MyBatisGenerator
         MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
-        //执行生成代码
+        // Everything is ready, let's generate
         myBatisGenerator.generate(null);
-        //输出警告信息
+        // Output the possible warning messages
         for (String warning : warnings) {
             System.out.println(warning);
         }
